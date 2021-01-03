@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntColony", "AntColony\AntColony.csproj", "{8F92AB26-825C-4A04-BE0B-72A242D91440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{00C2E414-FC83-4A5B-8FF3-C2639F35CCFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F92AB26-825C-4A04-BE0B-72A242D91440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F92AB26-825C-4A04-BE0B-72A242D91440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F92AB26-825C-4A04-BE0B-72A242D91440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F92AB26-825C-4A04-BE0B-72A242D91440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00C2E414-FC83-4A5B-8FF3-C2639F35CCFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C2E414-FC83-4A5B-8FF3-C2639F35CCFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00C2E414-FC83-4A5B-8FF3-C2639F35CCFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C2E414-FC83-4A5B-8FF3-C2639F35CCFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

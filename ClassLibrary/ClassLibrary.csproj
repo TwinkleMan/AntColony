@@ -41,6 +41,7 @@
     <ItemGroup>
         <Compile Include="Ant.cs" />
         <Compile Include="City.cs" />
+        <Compile Include="Graph.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

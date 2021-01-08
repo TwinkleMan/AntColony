@@ -26,7 +26,6 @@ namespace ClassLibrary
         private double alpha, beta, rho;
         private int Q;
         
-        private Stopwatch watch = new Stopwatch();  //таймер, отсчитывающий время выполнения алгоритма
         private List<Image> antSteps = new List<Image>();   //список с изображениями, отображающими шаги алгоритма
         private double bestTourLength = -1;  //Длина лучшего маршрута
         private List<int> bestTourList = new List<int>();   //Лучший маршрут, найденный алгоритмом
@@ -103,9 +102,8 @@ namespace ClassLibrary
                     double y = Math.Pow((double)cityList[i].getLocation().Y - (double)cityList[j].getLocation().Y, 2.0);
                     distances[i, j] = Math.Round(Math.Sqrt(x + y), 2);
                     isDistancesEmpty = false;
-
-                    if (i == j) pheromones[i, j] = 0;
-                    else pheromones[i, j] = Math.Round((1.0 / numberOfCities),2);
+                    
+                    pheromones[i, j] = Math.Round((1.0 / numberOfCities),2);
                     isPheromonesEmpty = false;
                 }
             }
@@ -220,8 +218,7 @@ namespace ClassLibrary
                         graphics.Clear(Color.White);
                     }
                 }
-
-                watch.Stop();
+                
                 allDraw(); 
                 cityList[bestTourList[0]].DrawFinish(graphics);
                 graphics.DrawString(string.Format("Итерация " + Convert.ToString(k + 1)), new Font("Arial", 10), new SolidBrush(Color.Black), 10, 10); 
@@ -237,7 +234,10 @@ namespace ClassLibrary
                 tempCanvas.Save(stream,System.Drawing.Imaging.ImageFormat.Bmp);
                 antSteps.Add(Image.FromStream(stream));
                 streamWriter.WriteLine(bestTourLength);
-                watch.Start();
+                foreach (int i in bestTourList)
+                {
+                    streamWriter.WriteLine(Convert.ToString(i) + " ");
+                }
             }
 
             graphics = null;
@@ -269,6 +269,10 @@ namespace ClassLibrary
         {
             double denom = 0; //знаменатель
             double moveChanse = 0; //вероятность перехода
+            
+            double localMaxChance = 0;  //наибольшая вероятность перехода
+            int maxChanceIndex = 0; //индекс вершины с наибольшим шансом перехода
+
             int currentCity = currentAnt.getCurrentLocation();
 
             //if (isManuallyBuilt)  //если граф создается вручную
@@ -280,33 +284,34 @@ namespace ClassLibrary
                 }
             }
 
-            int destinationCity = 0;
-            double randomMove = 0;
+            int destinationCity = 0;    //для упрощения чтения кода
 
-            for (int count = 0; count < 1000; count++)
+            //выбор следующей вершины
+            for (int count = 0; count < numberOfCities; count++)
             {
-                if (!currentAnt.tabuList[destinationCity]) //если муравей не ходил в эту вершину
+                destinationCity = count;
+                if (!currentAnt.tabuList[destinationCity] && destinationCity != currentCity) //если муравей не ходил в эту вершину
                 {
                     moveChanse = Math.Pow(pheromones[currentCity, destinationCity], alpha) *
                         Math.Pow((1.0 / distances[currentCity, destinationCity]), beta) / denom;
-                    randomMove = randomGenerator.NextDouble();
-                    if (randomMove < denom) break;
+                    if (moveChanse > localMaxChance)
+                    {
+                        localMaxChance = moveChanse;
+                        maxChanceIndex = destinationCity;
+                    }
                 }
-
-                destinationCity++;
-                if (destinationCity >= numberOfCities) destinationCity = 0; //сброс счетчика
             }
 
-            currentAnt.tabuList[destinationCity] = true;
-            currentAnt.travelMap.Add(destinationCity);
-            currentAnt.UpdateDistanceTravelled(distances[currentAnt.getCurrentLocation(), destinationCity]);
+            currentAnt.tabuList[maxChanceIndex] = true;
+            currentAnt.travelMap.Add(maxChanceIndex);
+            currentAnt.UpdateDistanceTravelled(distances[currentAnt.getCurrentLocation(), maxChanceIndex]);
             //если муравей добрался до конца - идем в самое начало
             if (currentAnt.travelMap.Count == numberOfCities)
             {
                 currentAnt.UpdateDistanceTravelled(
                     distances[currentAnt.travelMap[numberOfCities - 1], currentAnt.travelMap[0]]);
             }
-            currentAnt.setCurrentLocation(destinationCity);
+            currentAnt.setCurrentLocation(maxChanceIndex);
 
         }
 
@@ -408,6 +413,11 @@ namespace ClassLibrary
         public List<Image> GetImages()
         {
             return antSteps;
+        }
+
+        public double getBestTourLength()
+        {
+            return bestTourLength;
         }
     }
 }

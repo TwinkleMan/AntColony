@@ -60,7 +60,7 @@ namespace AntColony
             this.Controls.Add(this.pheromones_grid);
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "form_pheromonesTable";
-            this.Text = "Таблица феромонов";
+            this.Text = "Матрица феромонов";
             this.Load += new System.EventHandler(this.form_pheromonesTable_Load);
             ((System.ComponentModel.ISupportInitialize) (this.pheromones_grid)).EndInit();
             this.ResumeLayout(false);

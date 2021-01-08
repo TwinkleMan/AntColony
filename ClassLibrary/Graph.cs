@@ -30,6 +30,8 @@ namespace ClassLibrary
         private double bestTourLength = -1;  //Длина лучшего маршрута
         private List<int> bestTourList = new List<int>();   //Лучший маршрут, найденный алгоритмом
         private int iterations; //количество итераций алгоритма
+
+        private int[] antIerarchy;  //массив "индексов" муравьев по их месту в иерархии 
         
 
         public Graph(int canvasHeight,int canvasWidth,Graphics canvas)
@@ -77,6 +79,9 @@ namespace ClassLibrary
             int city_X = 0, city_Y = 0;
             distances = new double[numberOfCities, numberOfCities];
             pheromones = new double[numberOfCities, numberOfCities];
+            antIerarchy = new int[numberOfAnts];
+            for (int i = 0; i < numberOfAnts; i++) antIerarchy[i] = -1;
+            
             if (isRandom)
             {
                 cityList = new List<City>();
@@ -211,6 +216,7 @@ namespace ClassLibrary
                 {
                     if (antsStopped()) //двигает муравьев на один шаг вперед и проверяет, дошли ли они
                     {
+                        sortAnts(); //сортировка муравьев по пройденному расстоянию
                         evaporatePheromones();
                         updatePheromones();
                         bestTour(); //проверяет муравьев на наличие оптимальных маршрутов
@@ -315,13 +321,45 @@ namespace ClassLibrary
 
         }
 
+        private void sortAnts()
+        {
+            double minPath = Double.MaxValue;
+            int antNum = 0;
+            bool flag = false;
+
+            for (int count = 0; count < numberOfAnts; count++)
+            {
+                for (int i = 0; i < numberOfAnts; i++)
+                {
+                    if (Math.Round(antList[i].GetDistance(),3) <= Math.Round(minPath,3))
+                    {
+                        foreach (int rank in antIerarchy)
+                        {
+                            if (rank == i) flag = true;
+                        }
+
+                        if (!flag)
+                        {
+                            minPath = Math.Round(antList[i].GetDistance(),3);
+                            antNum = i;
+                        }
+                    }
+
+                    flag = false;
+                }
+                antIerarchy[count] = antNum;
+                flag = false;
+                minPath = Double.MaxValue;
+            }
+        }
+        
         private void evaporatePheromones()
         {
             for (int i = 0; i < numberOfCities; i++)
             {
                 for (int k = 0; k < numberOfCities; k++)
                 {
-                    pheromones[i, k] *= (1.0 - rho);
+                    pheromones[i, k] *= (rho);
                     //значение феромонов не должно падать ниже изначального
                     if (pheromones[i, k] < (1.0 / numberOfCities))
                     {

@@ -61,7 +61,7 @@ namespace AntColony
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "form_distancesTable";
-            this.Text = "Таблица расстояний";
+            this.Text = "Матрица расстояний";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_distancesTable_FormClosing);
             this.Load += new System.EventHandler(this.form_distancesTable_Load);
             ((System.ComponentModel.ISupportInitialize) (this.distances_grid)).EndInit();

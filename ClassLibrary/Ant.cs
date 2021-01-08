@@ -9,6 +9,7 @@ namespace ClassLibrary
         private int nextLocation;
         public List<bool> tabuList;
         public List<int> travelMap;
+        private int placeInIerarchy;
 
         public Ant()
         {
@@ -16,12 +17,14 @@ namespace ClassLibrary
             currentLocation = 0;
             tabuList = new List<bool>();
             travelMap = new List<int>();
+            placeInIerarchy = -1;
         }
 
         public Ant(int location,int tabuSize)
         {
             distanceTravelled = 0;
             currentLocation = location;
+            placeInIerarchy = -1;
             tabuList = new List<bool>(tabuSize);
             for (int i = 0; i < tabuSize; i++)
             {

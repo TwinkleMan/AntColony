@@ -193,8 +193,8 @@ namespace AntColony
         private void _antsStart_Click(object sender, EventArgs e)
         {
             graph.Calculate();
-            form_results = new form_results(graph);
-            form_results.Show();
+            //form_results = new form_results(graph);
+            //form_results.Show();
             lbl_distance.Text = Convert.ToString(graph.getBestTourLength());
             pictureBox1.Image = graph.GetImages()[graph.GetImages().Count - 1];
             _antsStart.Enabled = false;

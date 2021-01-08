@@ -31,6 +31,7 @@ namespace AntColony
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_distancesTable));
             this.distances_grid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize) (this.distances_grid)).BeginInit();
             this.SuspendLayout();
@@ -57,9 +58,10 @@ namespace AntColony
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.distances_grid);
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Name = "form_distancesTable";
-            this.Text = "form_distancesTable";
+            this.Text = "Таблица расстояний";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_distancesTable_FormClosing);
             this.Load += new System.EventHandler(this.form_distancesTable_Load);
             ((System.ComponentModel.ISupportInitialize) (this.distances_grid)).EndInit();

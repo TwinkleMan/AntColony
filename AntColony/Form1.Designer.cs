@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this._generateGraph = new System.Windows.Forms.Button();
             this.txtbox_numOfCities = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,6 +51,8 @@
             this._flush = new System.Windows.Forms.Button();
             this._pheromones = new System.Windows.Forms.Button();
             this._antsStart = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_distance = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,11 +231,30 @@
             this._antsStart.UseVisualStyleBackColor = true;
             this._antsStart.Click += new System.EventHandler(this._antsStart_Click);
             // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(929, 284);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 21);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Лучшая длина пути: ";
+            // 
+            // lbl_distance
+            // 
+            this.lbl_distance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.lbl_distance.Location = new System.Drawing.Point(1075, 284);
+            this.lbl_distance.Name = "lbl_distance";
+            this.lbl_distance.Size = new System.Drawing.Size(140, 21);
+            this.lbl_distance.TabIndex = 23;
+            this.lbl_distance.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1232, 753);
+            this.Controls.Add(this.lbl_distance);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this._antsStart);
             this.Controls.Add(this._pheromones);
             this.Controls.Add(this._flush);
@@ -254,12 +276,17 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtbox_numOfCities);
             this.Controls.Add(this._generateGraph);
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Муравьиный алгоритм";
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label lbl_distance;
+
+        private System.Windows.Forms.Label label1;
 
         private System.Windows.Forms.Button _antsStart;
 

@@ -31,6 +31,7 @@ namespace AntColony
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_pheromonesTable));
             this.pheromones_grid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize) (this.pheromones_grid)).BeginInit();
             this.SuspendLayout();
@@ -57,9 +58,9 @@ namespace AntColony
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pheromones_grid);
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "form_pheromonesTable";
-            this.Text = "form_pheromonesTable";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_pheromonesTable_FormClosing);
+            this.Text = "Таблица феромонов";
             this.Load += new System.EventHandler(this.form_pheromonesTable_Load);
             ((System.ComponentModel.ISupportInitialize) (this.pheromones_grid)).EndInit();
             this.ResumeLayout(false);

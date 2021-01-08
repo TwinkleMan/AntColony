@@ -31,10 +31,9 @@ namespace AntColony
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_results));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_back = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_saveAll = new System.Windows.Forms.Button();
             this.btn_forward = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,24 +54,7 @@ namespace AntColony
             this.btn_back.TabIndex = 1;
             this.btn_back.Text = "Назад";
             this.btn_back.UseVisualStyleBackColor = true;
-            // 
-            // btn_save
-            // 
-            this.btn_save.Location = new System.Drawing.Point(388, 744);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(128, 24);
-            this.btn_save.TabIndex = 2;
-            this.btn_save.Text = "Сохранить";
-            this.btn_save.UseVisualStyleBackColor = true;
-            // 
-            // btn_saveAll
-            // 
-            this.btn_saveAll.Location = new System.Drawing.Point(388, 774);
-            this.btn_saveAll.Name = "btn_saveAll";
-            this.btn_saveAll.Size = new System.Drawing.Size(128, 24);
-            this.btn_saveAll.TabIndex = 3;
-            this.btn_saveAll.Text = "Сохранить все";
-            this.btn_saveAll.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // btn_forward
             // 
@@ -82,6 +64,7 @@ namespace AntColony
             this.btn_forward.TabIndex = 4;
             this.btn_forward.Text = "Вперед";
             this.btn_forward.UseVisualStyleBackColor = true;
+            this.btn_forward.Click += new System.EventHandler(this.btn_forward_Click);
             // 
             // form_results
             // 
@@ -90,12 +73,12 @@ namespace AntColony
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(896, 812);
             this.Controls.Add(this.btn_forward);
-            this.Controls.Add(this.btn_saveAll);
-            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.pictureBox1);
+            this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "form_results";
+            this.Text = "Результат";
             this.Load += new System.EventHandler(this.form_results_Load);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -103,8 +86,6 @@ namespace AntColony
 
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Button btn_forward;
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Button btn_saveAll;
 
         private System.Windows.Forms.PictureBox pictureBox1;
 

@@ -90,6 +90,7 @@ namespace AntColony
             _generateGraph.Enabled = true;
             _insertGraph.Enabled = true;
             _antsStart.Enabled = false;
+            _antsStart.Text = "Папалзли";
             _generateGraph.Text = "Сгенерировать граф";
             form_distances = null;
             form_pheromones = null;
@@ -98,6 +99,7 @@ namespace AntColony
             _distances.Enabled = false;
             _pheromones.Enabled = false;
             isPlacedByHand = false;
+            lbl_distance.Text = "-";
             
             pictureBox1.Image = null;
             graph = null;
@@ -183,21 +185,21 @@ namespace AntColony
 
         private void _pheromones_Click(object sender, EventArgs e)
         {
-            if (form_pheromones == null)
-            {
-                form_pheromones = new form_pheromonesTable(graph);
-            }
+            form_pheromones = new form_pheromonesTable(graph);
 
             form_pheromones.Show();
         }
 
         private void _antsStart_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Bababoy");
             graph.Calculate();
-            MessageBox.Show("Bababoy", "Bababoy", MessageBoxButtons.OK);
             form_results = new form_results(graph);
             form_results.Show();
+            lbl_distance.Text = Convert.ToString(graph.getBestTourLength());
+            pictureBox1.Image = graph.GetImages()[graph.GetImages().Count - 1];
+            _antsStart.Enabled = false;
+            _antsStart.Text = "Доползались...";
         }
+
     }
 }

@@ -33,6 +33,34 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Interop.ISAPPSERVICESLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\ISWiAuto24.1.0.0\lib\Interop.ISAPPSERVICESLib.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Interop.IsmAutoLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\ISWiAuto24.1.0.0\lib\Interop.IsmAutoLib.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Interop.ISMMUpdaterLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\ISWiAuto24.1.0.0\lib\Interop.ISMMUpdaterLib.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Interop.ISUPGRADELib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\ISWiAuto24.1.0.0\lib\Interop.ISUPGRADELib.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Interop.ISWiAuto24, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\ISWiAuto24.1.0.0\lib\Interop.ISWiAuto24.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Interop.ISWIBUILDLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\ISWiAuto24.1.0.0\lib\Interop.ISWIBUILDLib.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Interop.VBA, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\packages\ISWiAuto24.1.0.0\lib\Interop.VBA.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Windows.Controls.Ribbon" />
@@ -94,6 +122,7 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
+        <None Include="packages.config" />
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>
             <LastGenOutput>Settings.Designer.cs</LastGenOutput>

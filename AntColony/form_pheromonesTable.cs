@@ -25,15 +25,9 @@ namespace AntColony
             {
                 table.Rows.Add(table.NewRow());
                 for (int j = 0; j < array.GetLength(1); j++)
-                    table.Rows[i][j] = array[i,j];
+                    table.Rows[i][j] = Math.Round(array[i,j],2);
             }
             return table;
-        }
-
-        private void form_pheromonesTable_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = true;
-            this.Hide();
         }
 
         private void form_pheromonesTable_Load(object sender, EventArgs e)

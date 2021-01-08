@@ -5,9 +5,9 @@ namespace ClassLibrary
     public class Ant
     {
         private double distanceTravelled;
-        private int currentLocation { get; set; }
+        private int currentLocation;
         private int nextLocation;
-        private List<bool> tabuList;
+        public List<bool> tabuList;
         public List<int> travelMap;
 
         public Ant()
@@ -15,6 +15,7 @@ namespace ClassLibrary
             distanceTravelled = 0;
             currentLocation = 0;
             tabuList = new List<bool>();
+            travelMap = new List<int>();
         }
 
         public Ant(int location,int tabuSize)
@@ -22,6 +23,11 @@ namespace ClassLibrary
             distanceTravelled = 0;
             currentLocation = location;
             tabuList = new List<bool>(tabuSize);
+            for (int i = 0; i < tabuSize; i++)
+            {
+                tabuList.Add(false);
+            }
+            travelMap = new List<int>();
         }
 
         public double GetDistance()
@@ -42,6 +48,16 @@ namespace ClassLibrary
         public void UpdateDistanceTravelled(double distance)
         {
             distanceTravelled += distance;
+        }
+
+        public int getCurrentLocation()
+        {
+            return currentLocation;
+        }
+
+        public void setCurrentLocation(int location)
+        {
+            currentLocation = location;
         }
     }
 }

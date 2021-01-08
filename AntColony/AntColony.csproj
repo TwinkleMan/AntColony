@@ -53,10 +53,37 @@
         <Compile Include="Form1.Designer.cs">
             <DependentUpon>Form1.cs</DependentUpon>
         </Compile>
+        <Compile Include="form_distancesTable.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="form_distancesTable.Designer.cs">
+          <DependentUpon>form_distancesTable.cs</DependentUpon>
+        </Compile>
+        <Compile Include="form_pheromonesTable.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="form_pheromonesTable.Designer.cs">
+          <DependentUpon>form_pheromonesTable.cs</DependentUpon>
+        </Compile>
+        <Compile Include="form_results.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="form_results.Designer.cs">
+          <DependentUpon>form_results.cs</DependentUpon>
+        </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <EmbeddedResource Include="Form1.resx">
           <DependentUpon>Form1.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="form_distancesTable.resx">
+          <DependentUpon>form_distancesTable.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="form_pheromonesTable.resx">
+          <DependentUpon>form_pheromonesTable.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="form_results.resx">
+          <DependentUpon>form_results.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
